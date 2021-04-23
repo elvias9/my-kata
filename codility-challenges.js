@@ -25,3 +25,40 @@ function solution(A) {
   }
   
   solution( [2, 3, -1, 1, 3])// 4
+
+
+// NUMBER OF COMPLEMENTARY PAIRS
+//Given Target Integer K and a non-empty Array of positive Integers N
+//returns the number of K complementary pair - 
+//which means the value of one index plus the value of another index should be equal the K 
+//   Return the count of the pairs at the end
+
+function findPairs(K, A) {
+    let counter = 0
+    //create an object of key-value pairs
+    //to check if the element in the array is duplicate
+    let duplicate = {}
+    A.forEach(el => {
+    //if the element doesn't exist, create an entry in the object
+      if(!duplicate[el]) {
+        return duplicate[el] = 1
+        //if the element exists, add 1 to the value
+      } else {
+      duplicate[el] ++ 
+      }
+    })
+     // console.log(duplicate)
+    Object.keys(duplicate).forEach(key => {
+      let difference = K-key
+      //if difference is a key in duplicate (this evaluate to true)
+      if (difference in duplicate) {
+        //console.log(duplicate[key])
+        //console.log(duplicate[difference])
+        counter += duplicate[key] * duplicate[difference]
+      }
+    })
+    return counter
+  }
+  
+  
+  findPairs(6, [1,8,-3,0,1,3,-2,4,5])// 7*/
