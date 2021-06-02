@@ -12,16 +12,13 @@
 function solution(A) {
     let jumps = []
     let i = 0
-    
-    do { 
-    i= i+A[i]
-    jumps.push(A[i])
-      if (jumps.length >= A.length) {
-        return -1}
-    } while (i<=A.length)
-       
-      return jumps.length
-    
+    while (i<=A.length){
+      i= i+A[i]
+  jumps.push(A[i])
+    if (jumps.length >= A.length) {
+      return -1}
+  }     
+    return jumps.length   
   }
   
   solution( [2, 3, -1, 1, 3])// 4
